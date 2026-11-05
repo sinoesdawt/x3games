@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOTTIES</title>
+<style>
+:root{--bg:#090710;--panel:#151020;--panel2:#1d162b;--purple:#9b5cff;--pink:#d56bff;--text:#f7f2ff;--muted:#a99db9;--line:#302440}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#32164e 0,transparent 35%),var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#0d0915eF;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1150px;margin:auto;padding:16px 22px;display:flex;align-items:center;gap:22px}.logo{font-size:25px;font-weight:950;letter-spacing:2px;color:#fff}.logo span{color:var(--purple)}.navlinks{display:flex;gap:18px;margin-left:auto}.nav a{color:var(--muted);text-decoration:none;font-size:14px}.nav a:hover{color:white}
+button,.btn{border:0;border-radius:11px;padding:11px 16px;background:linear-gradient(135deg,var(--purple),#7136c8);color:white;font-weight:750;cursor:pointer}.btn.secondary,button.secondary{background:#241a32;border:1px solid #49345f}.wrap{max-width:1150px;margin:auto;padding:30px 22px}.hero{padding:54px 0 35px;display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}.eyebrow{color:#c99aff;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:800}.hero h1{font-size:clamp(42px,7vw,68px);line-height:1.02;margin:12px 0}.hero h1 span{color:#bd83ff}.hero p{color:var(--muted);font-size:16px;line-height:1.7;max-width:570px}.hero-art{min-height:220px;border:1px solid #49345f;border-radius:26px;background:linear-gradient(145deg,#29143d,#171020 65%);display:grid;place-items:center;font-size:88px;box-shadow:0 20px 70px #0008}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}.search{flex:1;min-width:220px;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:white;font-size:14px;outline:none}.search:focus{border-color:var(--purple)}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 22px}.chip{background:#1b1426;color:#c9bbdc;border:1px solid var(--line);border-radius:30px;padding:9px 14px;cursor:pointer;font-size:13px}.chip.active{background:#6735a2;color:white;border-color:#9b5cff}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:30px 0 16px}.section-head h2{margin:0;font-size:24px}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.game{background:linear-gradient(150deg,#1c1528,#120e1b);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.2s}.game:hover{transform:translateY(-3px);border-color:#8050b3}.thumb{height:130px;display:grid;place-items:center;font-size:53px;background:linear-gradient(135deg,#3c1e58,#211330)}.gamebody{padding:16px}.gamebody h3{margin:0 0 7px}.gamebody p{color:var(--muted);font-size:13px;min-height:38px;line-height:1.5}.gamefoot{display:flex;justify-content:space-between;align-items:center;margin-top:13px}.tag{font-size:11px;color:#d5b7ff;background:#2b1b3e;border-radius:20px;padding:6px 9px}
+.panel{display:none;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;margin:25px 0}.panel.show{display:block}.panel h2{margin-top:0}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fields input,.fields select,.fields textarea{width:100%;padding:12px;background:#0d0915;color:white;border:1px solid var(--line);border-radius:10px}.fields textarea{grid-column:1/-1;min-height:75px}.wide{grid-column:1/-1}.adminbar{display:flex;justify-content:space-between;align-items:center;gap:10px}.notice{background:#20182c;border:1px solid #49345f;color:#cbb9df;padding:12px 14px;border-radius:11px;font-size:13px;line-height:1.5;margin:12px 0}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:25px 22px;color:var(--muted);text-align:center;font-size:12px}
+@media(max-width:750px){.hero{grid-template-columns:1fr;padding-top:35px}.hero-art{min-height:150px}.grid{grid-template-columns:1fr 1fr}.navlinks{gap:10px}.fields{grid-template-columns:1fr}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.nav{gap:10px}.navlinks a{font-size:12px}.logo{font-size:21px}}
+
+/* DOTTIES visual upgrade */
+:root{--bg:#07050d;--panel:#120d1d;--panel2:#1b1229;--purple:#a56aff;--pink:#f078ff;--line:#342248;--muted:#b5a7c8}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% -25%,#55217c 0,transparent 42%),radial-gradient(circle at 5% 45%,#24103b 0,transparent 28%),radial-gradient(circle at 95% 72%,#1d1233 0,transparent 25%),#07050d}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background-image:radial-gradient(#d8b8ff 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+header{background:rgba(9,6,16,.78);border-bottom:1px solid #ffffff16;box-shadow:0 10px 40px #0004}
+.nav{padding-top:18px;padding-bottom:18px}.logo{font-size:27px;text-shadow:0 0 24px #a56aff55}.logo span{color:#d18aff}
+.navlinks a{transition:color .22s ease,transform .22s ease}.navlinks a:hover{color:#e8d4ff;transform:translateY(-2px)}
+button,.btn{position:relative;overflow:hidden;border-radius:13px;background:linear-gradient(115deg,#9b55ed,#c05cff 52%,#713bd1);box-shadow:0 8px 24px #8c4ce533;transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+button:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 13px 32px #9c55ef55;filter:brightness(1.12)}
+button:active,.btn:active{transform:translateY(0) scale(.98)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #d9a7ff;outline-offset:3px}
+.wrap{max-width:1200px;padding-top:38px}
+.hero{position:relative;isolation:isolate;min-height:390px;padding:65px 42px 55px;margin:18px 0 60px;border:1px solid #ffffff18;border-radius:32px;background:linear-gradient(115deg,#1a1029eF,#120d1dcc 58%,#25113a99);box-shadow:0 25px 90px #0006,inset 0 1px #ffffff12;overflow:hidden;animation:riseIn .8s cubic-bezier(.2,.75,.25,1) both}
+.hero:before{content:"";position:absolute;width:440px;height:440px;right:-95px;top:-190px;border-radius:50%;background:radial-gradient(circle,#a65cff55,transparent 68%);z-index:-1;filter:blur(8px)}
+.hero:after{content:"DOTTIES";position:absolute;right:22px;bottom:-38px;font-size:clamp(70px,13vw,170px);font-weight:1000;letter-spacing:-9px;color:#ffffff08;z-index:-1;pointer-events:none}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #b77aff55;border-radius:99px;background:#9b5cff18;color:#dfbdff;letter-spacing:1.8px}
+.hero h1{font-size:clamp(48px,7vw,82px);letter-spacing:-3px;line-height:.98;margin:20px 0 18px}.hero h1 span{background:linear-gradient(90deg,#c49aff,#f09aff 55%,#a987ff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}
+.hero p{font-size:16px;max-width:510px;color:#c0b2d2}.hero .btn{margin-top:10px;padding:14px 21px}
+.hero-art{position:relative;min-height:245px;border:1px solid #c28bff55;border-radius:30px;background:radial-gradient(circle at 50% 45%,#8c4bcb55,transparent 58%),linear-gradient(145deg,#38204f,#130d20 72%);font-size:105px;box-shadow:0 25px 65px #0008,inset 0 1px #ffffff20;animation:floaty 5s ease-in-out infinite}
+.hero-art:after{content:"✦  ✧  ✦";position:absolute;top:20px;right:25px;font-size:18px;color:#e9c9ff;letter-spacing:12px;opacity:.8}
+.section-head{margin:38px 0 18px}.section-head h2{font-size:29px;letter-spacing:-.7px}.section-head .eyebrow{margin-bottom:8px}
+.toolbar{margin:22px 0 16px}.search{background:#120d1de8;border:1px solid #ffffff20;border-radius:14px;padding:16px 18px;box-shadow:inset 0 1px #ffffff08;transition:border-color .2s,box-shadow .2s}.search:focus{border-color:#b47aff;box-shadow:0 0 0 4px #a45cff20}
+.chip{background:#171021;border-color:#ffffff1c;transition:all .2s ease}.chip:hover{border-color:#a66bff;color:white;transform:translateY(-2px)}.chip.active{background:linear-gradient(120deg,#8547c9,#b65ce8);border-color:#d2a1ff;box-shadow:0 5px 20px #9b5cff33}
+.grid{gap:19px}.game{position:relative;background:linear-gradient(155deg,#1d142b,#100b18 75%);border:1px solid #ffffff18;border-radius:21px;box-shadow:0 14px 38px #0003;animation:cardIn .55s both;transition:transform .28s cubic-bezier(.2,.8,.2,1),border-color .28s,box-shadow .28s}
+.game:hover{transform:translateY(-8px) scale(1.012);border-color:#a76cffaa;box-shadow:0 22px 48px #0007,0 0 28px #9c58e51c}
+.thumb{height:155px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 40%,#71439b,#29183c 68%,#171020);font-size:61px}.thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,#ffffff12 48%,transparent 70%);transform:translateX(-110%);transition:transform .7s}.game:hover .thumb:after{transform:translateX(110%)}
+.gamebody{padding:19px}.gamebody h3{font-size:18px;letter-spacing:-.3px}.gamebody p{color:#b7a9c9}.tag{border:1px solid #a76cff33;background:#9b5cff18;color:#dfc5ff}.gamefoot{margin-top:18px}
+.panel{background:linear-gradient(145deg,#1b1228,#100b18);border-color:#ffffff20;box-shadow:0 18px 55px #0005;animation:riseIn .35s ease both}.notice{background:#261735;border-color:#7444a0;color:#e0cbee}
+.fields input,.fields select,.fields textarea{background:#0b0811;border-color:#ffffff20;border-radius:12px}.fields input:focus,.fields select:focus,.fields textarea:focus{outline:none;border-color:#a66bff;box-shadow:0 0 0 3px #a66bff22}
+footer{border-color:#ffffff18;color:#897b9d;padding:32px 22px}
+@keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cardIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}
+@media(max-width:750px){.hero{padding:38px 25px;margin-bottom:40px;border-radius:24px}.hero-art{min-height:175px}.hero h1{letter-spacing:-2px}.thumb{height:130px}}
+@media(max-width:480px){.hero{padding:30px 20px}.hero h1{font-size:46px}.hero-art{font-size:78px}.section-head h2{font-size:24px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="logo">DOT<span>TIES</span></div><nav class="navlinks"><a href="#games">Games</a><a href="#about">About</a></nav><button class="secondary" onclick="toggleAdmin()">Admin</button></div></header>
+<main class="wrap">
+<section class="hero" id="about"><div><div class="eyebrow">Your game corner</div><h1>Find your next<br><span>favorite game.</span></h1><p>Welcome to DOTTIES — a place to discover games shared by the community. Pick a game, open its link, and have fun.</p><a class="btn" href="#games" style="display:inline-block;text-decoration:none">Explore games</a></div><div class="hero-art" aria-label="Game controller artwork">🎮✨</div></section>
+<section id="games"><div class="section-head"><div><div class="eyebrow">The collection</div><h2>Browse games</h2></div><span class="muted" id="count"></span></div>
+<div class="toolbar"><input class="search" id="search" placeholder="Search games..." oninput="renderGames()"></div>
+<div class="chips" id="chips"></div><div class="grid" id="gamesGrid"></div></section>
+<section class="panel" id="adminPanel"><div class="adminbar"><div><div class="eyebrow">Owner tools</div><h2>Admin panel</h2></div><button class="secondary" onclick="toggleAdmin()">Close</button></div>
+<div class="notice">This is a starter version. Games and settings are saved only in this browser. A public, shared admin system with real accounts and permissions needs a secure backend before launch.</div>
+<form id="gameForm" class="fields"><input id="gameName" placeholder="Game name" required><input id="gameUrl" type="url" placeholder="Game URL (https://...)" required><select id="gameCategory"><option>Action</option><option>Adventure</option><option>Arcade</option><option>Puzzle</option><option>Other</option></select><input id="gameEmoji" placeholder="Emoji (example: 🎯)" value="🎮"><textarea id="gameDescription" placeholder="Short game description"></textarea><button class="wide" type="submit">Add game</button></form>
+<div class="section-head"><h2>Manage games</h2></div><div id="manageList" class="muted"></div>
+</section>
+</main>
+<footer>DOTTIES · Game links shared by the community</footer>
+<script>
+const starter=[
+{name:"Roblox",url:"https://www.roblox.com/",category:"Adventure",emoji:"🧱",description:"Explore millions of experiences made by creators."},
+{name:"Chess.com",url:"https://www.chess.com/",category:"Puzzle",emoji:"♟️",description:"Play chess and challenge friends online."},
+{name:"2048",url:"https://play2048.co/",category:"Arcade",emoji:"🔢",description:"A quick number puzzle that is easy to pick up."}
+];
+let games=JSON.parse(localStorage.getItem("dotties_games")||"null")||starter;
+let category="All";
+function save(){localStorage.setItem("dotties_games",JSON.stringify(games))}
+function renderChips(){let cats=["All",...new Set(games.map(g=>g.category))];document.getElementById("chips").innerHTML=cats.map(c=>`<button class="chip ${c===category?'active':''}" onclick="category=${JSON.stringify(c)};renderChips();renderGames()">${c}</button>`).join("")}
+function renderGames(){let q=document.getElementById("search").value.toLowerCase();let shown=games.filter(g=>(category==="All"||g.category===category)&&(g.name+" "+g.description+" "+g.category).toLowerCase().includes(q));document.getElementById("count").textContent=shown.length+" games";document.getElementById("gamesGrid").innerHTML=shown.length?shown.map(g=>`<article class="game"><div class="thumb">${escapeHtml(g.emoji||"🎮")}</div><div class="gamebody"><h3>${escapeHtml(g.name)}</h3><p>${escapeHtml(g.description||"Community game link.")}</p><div class="gamefoot"><span class="tag">${escapeHtml(g.category)}</span><a class="btn" href="${safeUrl(g.url)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Play ↗</a></div></div></article>`).join(""):'<p class="muted">No games found. Try another search.</p>';renderManage()}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function safeUrl(s){try{let u=new URL(s);return ["http:","https:"].includes(u.protocol)?u.href:"#"}catch{return "#"}}
+function renderManage(){document.getElementById("manageList").innerHTML=games.map((g,i)=>`<div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #302440"><span>${escapeHtml(g.name)}</span><button class="secondary" onclick="removeGame(${i})">Remove</button></div>`).join("")||"No games yet."}
+function removeGame(i){games.splice(i,1);save();renderChips();renderGames()}
+function toggleAdmin(){document.getElementById("adminPanel").classList.toggle("show");if(document.getElementById("adminPanel").classList.contains("show"))document.getElementById("adminPanel").scrollIntoView({behavior:"smooth"})}
+document.getElementById("gameForm").addEventListener("submit",e=>{e.preventDefault();games.push({name:gameName.value.trim(),url:gameUrl.value.trim(),category:gameCategory.value,emoji:gameEmoji.value.trim()||"🎮",description:gameDescription.value.trim()});save();e.target.reset();gameEmoji.value="🎮";renderChips();renderGames()});
+renderChips();renderGames();
+</script>
+</body></html>
